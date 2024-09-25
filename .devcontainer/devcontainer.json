@@ -1,0 +1,16 @@
+{
+	"name": "Node.js & TypeScript",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"runArgs": [
+		"--rm",
+		"--name=test-wayofjen"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-playwright.playwright"
+			]
+		}
+	},
+	"postCreateCommand": "yarn playwright install-deps; yarn playwright install; sudo Xvfb :99 -screen 0 1280x720x16"
+}
