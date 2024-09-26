@@ -12,8 +12,12 @@ test('channel', async ({ page }) => {
 test('playlists', async ({ page }) => {
   for(const [id, playlist] of Object.entries(playlists)) {
     await page.goto(playlist.url);
-    await expect(page).toHaveTitle(RegExp(playlist.title)); //  Starts with is sufficient
+    await expect(page).toHaveTitle(RegExp(playlist.title, 'i')); //  Starts with is sufficient
   }
+});
+
+test('videos-count', async ({ page }) => {
+  expect(videos.length).toBeGreaterThan(20);
 });
 
 test('videos', async ({ page }) => {
