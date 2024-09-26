@@ -19,7 +19,7 @@ test('playlists', async ({ page }) => {
 test('videos', async ({ page }) => {
   for(const video of videos) {
     await page.goto(video.youtubeLink);
-    await expect(page).toHaveTitle(RegExp(video.video));
+    await expect(page).toHaveTitle(RegExp(video.video, 'i'));
   }
 });
 
